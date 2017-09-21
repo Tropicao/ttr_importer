@@ -16,7 +16,8 @@ class TTRI_Ui(QtGui.QWidget):
         self._playlist_title_edit = QtGui.QLineEdit()
         self._playlist_title_label = QtGui.QLabel("Playlist title")
         self._playlist_upload = QtGui.QPushButton("Upload")
-        self._playlist_list_edit = QtGui.QListWidget()
+        self._playlist_list = QtGui.QListWidget()
+        item = QtGui.QListWidgetItem(self._playlist_list)
         self._playlist_list_label = QtGui.QLabel("Playlists loaded on device")
         self._playlist_tracks_label = QtGui.QLabel("Tracks");
         self._playlist_tracks_list = QtGui.QListWidget()
@@ -44,7 +45,7 @@ class TTRI_Ui(QtGui.QWidget):
         self._layout_top_left.addWidget(self._playlist_title_edit)
         self._layout_top_left.addWidget(self._playlist_upload)
         self._layout_down_left.addWidget(self._playlist_list_label)
-        self._layout_down_left.addWidget(self._playlist_list_edit)
+        self._layout_down_left.addWidget(self._playlist_list)
         self._layout_top_right.addWidget(self._playlist_tracks_label)
         self._layout_top_right.addWidget(self._playlist_tracks_list)
         self._layout_top_right.addWidget(self._select_track)
