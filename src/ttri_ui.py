@@ -62,19 +62,6 @@ class TTRI_Ui(QtGui.QWidget):
         self._splitter3.addWidget(self._splitter2)
         self._main_layout.addWidget(self._splitter3)
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create('Cleanlooks'))
-        
-        #self._grid = QtGui.QGridLayout()
-        #self._grid.addWidget(self._playlist_title_label, 0, 0)
-        #self._grid.addWidget(self._playlist_title_edit, 1, 0)
-        #self._grid.addWidget(self._playlist_upload, 3, 0)
-        #self._grid.addWidget(self._playlist_list_label, 4, 0)
-        #self._grid.addWidget(self._playlist_list_edit, 5, 0, 5, 1)
-
-        #self._grid.addWidget(self._playlist_tracks_label, 0, 1)
-        #self._grid.addWidget(self._playlist_tracks_list, 1, 1, 7, 1)
-        #self._grid.addWidget(self._select_track, 8, 1)
-        #self._grid.addWidget(self._status, 9, 1)
-        #self.setLayout(self._grid)
 
         self.show()
 
