@@ -11,3 +11,9 @@ This tool is designed to have the following features :
 * Allow user to select one or more music track(s)
 * Create a new playlist based on loaded tracks
 * Import freshly created playlist on device
+
+# Project dependencies
+* PyQt4
+
+# How to run it
+`python src/ttri_app.py`
