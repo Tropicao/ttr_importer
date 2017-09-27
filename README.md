@@ -14,6 +14,7 @@ This tool is designed to have the following features :
 
 # Project dependencies
 * PyQt4
+* PyUSB
 
 # How to run it
 `python src/ttri_app.py`
