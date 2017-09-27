@@ -37,6 +37,9 @@ class TTRI_Usb():
         self._poll_timer = Timer(self._polling_interval, self.poll)
         self._poll_timer.start()
 
+    def get_current_status(self):
+        return self._current_status
+
 def help():
     print "Python class used to detect a specific USB device connection/disconnection"
     print "Usage : python ttri_usb.py 0x<id_vendor> 0x<id_product> [polling_interval_s]"

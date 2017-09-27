@@ -9,7 +9,6 @@ class TTRI_Ui(QtGui.QWidget):
         self.center_ui()
 
     def init_ui(self):
-        
         self.setGeometry(50, 50, 500, 500)
         self.setWindowTitle('TomTom Runner Importer')
 
@@ -22,14 +21,16 @@ class TTRI_Ui(QtGui.QWidget):
         self._playlist_tracks_label = QtGui.QLabel("Tracks");
         self._playlist_tracks_list = QtGui.QListWidget()
         self._select_track = QtGui.QPushButton("Add track...");
-        self._status = QtGui.QPushButton("Status");
+        self._status = QtGui.QStatusBar();
+        self._status.showMessage("Device disconnected");
+        self._status.setSizeGripEnabled = False
         self._frame_top_left = QtGui.QFrame(self)
         self._frame_top_right = QtGui.QFrame(self)
         self._frame_down_left = QtGui.QFrame(self)
         self._frame_down_right = QtGui.QFrame(self)
         self._frame_top_left.setFrameShape(QtGui.QFrame.StyledPanel)
-        self._frame_top_right.setFrameShape(QtGui.QFrame.StyledPanel) 
-        self._frame_down_left.setFrameShape(QtGui.QFrame.StyledPanel) 
+        self._frame_top_right.setFrameShape(QtGui.QFrame.StyledPanel)
+        self._frame_down_left.setFrameShape(QtGui.QFrame.StyledPanel)
         self._frame_down_right.setFrameShape(QtGui.QFrame.StyledPanel)
         self._layout_top_left = QtGui.QVBoxLayout()
         self._layout_down_left = QtGui.QVBoxLayout()
@@ -71,6 +72,9 @@ class TTRI_Ui(QtGui.QWidget):
         cp = QtGui.QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
+
+    def set_status(self, message):
+        self._status.showMessage(message)
 
     def get_main_app(self):
         return self._app
