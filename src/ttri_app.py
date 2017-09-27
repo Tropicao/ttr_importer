@@ -14,7 +14,7 @@ class TTRI_App():
         sys.exit(self._app.exec_())
 
 if __name__ == "__main__":
-    print "Intializing app"
+    print "Initializing app"
     app = TTRI_App(sys.argv)
     print "Starting app"
     app.start()
