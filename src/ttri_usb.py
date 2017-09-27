@@ -16,6 +16,9 @@ class TTRI_Usb():
         self._poll_timer = Timer(self._polling_interval, self.poll)
         self._poll_timer.start()
 
+    def stop(self):
+        self._poll_timer.cancel()
+
     def search_ttr_device(self):
         status_changed = False
         dev = usb.core.find(idVendor=self._id_vendor, idProduct=self._id_product)

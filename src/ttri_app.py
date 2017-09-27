@@ -17,6 +17,11 @@ class TTRI_App():
         self._usb.start()
         sys.exit(self._app.exec_())
 
+    def stop(self):
+        self._ui.stop()
+        self._usb.stop()
+        self._app.exec_()
+
     def set_device_status(self, value):
         if value == True:
             self._ui.set_status("Device connected")

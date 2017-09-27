@@ -8,6 +8,12 @@ class TTRI_Ui(QtGui.QWidget):
         self.init_ui()
         self.center_ui()
 
+    def start(self):
+        pass
+
+    def stop(self):
+        pass
+
     def init_ui(self):
         self.setGeometry(50, 50, 500, 500)
         self.setWindowTitle('TomTom Runner Importer')
