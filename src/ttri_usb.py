@@ -1,3 +1,4 @@
+import sys
 import usb.core
 import usb.util
 from threading import Timer
@@ -23,7 +24,10 @@ class TTRI_Usb():
             status_changed = True
         self._current_status = (dev != None)
         if(status_changed):
-            self._usb_status_cb(self._current_status)
+            if(self._usb_status_cb != None):
+                self._usb_status_cb(self._current_status)
+            else:
+                print "New device connection status : ", self._current_status
 
         return (dev != None)
 
@@ -33,8 +37,21 @@ class TTRI_Usb():
         self._poll_timer = Timer(self._polling_interval, self.poll)
         self._poll_timer.start()
 
+def help():
+    print "Python class used to detect a specific USB device connection/disconnection"
+    print "Usage : python ttri_usb.py 0x<id_vendor> 0x<id_product> [polling_interval_s]"
+
 if __name__ == "__main__":
-    print "Starting USB test"
-    app = TTRI_Usb()
+    if(len(sys.argv) < 3):
+        help()
+        exit(1)
+    id_vendor = int(sys.argv[1], 16)
+    id_product = int(sys.argv[2], 16)
+    if (len(sys.argv) > 3):
+        interval = int(sys.argv[3])
+    else:
+        interval = 1
+    print "Starting USB detector on device ", hex(id_vendor),":",hex(id_product), ", polling at ", interval, "s."
+    app = TTRI_Usb(id_vendor, id_product, interval)
     app.start()
 
